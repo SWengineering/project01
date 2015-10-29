@@ -19,7 +19,7 @@ public class DBConnection {
 	public static boolean loadDriver() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("JDBC 드라이버 로드 성공!");
+			//System.out.println("JDBC 드라이버 로드 성공!");
 			
 			return true;
 		} catch (java.lang.ClassNotFoundException e) {
@@ -37,19 +37,19 @@ public class DBConnection {
 			
 			statement = connection.createStatement();
 			
-			//test
-			//-------------------------------------------------------------
-			String sql = "Select * From student_info.student";
-			result = statement.executeQuery(sql);
-			
-			while (result.next()) {
-				int id = result.getInt("id");
-				String name = result.getString("name");
-				String department = result.getString("department");
-				String phone = result.getString("phone");
-				System.out.println(id+"\t"+name+"\t"+department+"\t"+phone);
-			}
-			//-------------------------------------------------------------
+//			//test
+//			//-------------------------------------------------------------
+//			String sql = "Select * From student_info.student";
+//			result = statement.executeQuery(sql);
+//			
+//			while (result.next()) {
+//				int id = result.getInt("id");
+//				String name = result.getString("name");
+//				String department = result.getString("department");
+//				String phone = result.getString("phone");
+//				System.out.println(id+"\t"+name+"\t"+department+"\t"+phone);
+//			}
+//			//-------------------------------------------------------------
 			
 		} catch (SQLException ex) {
 			System.out.println("\n데이터베이스 연결 실패: "+ url);

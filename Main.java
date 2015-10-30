@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 public class Main {
 	static DBConnection dbConnection = null;
+	static AddStudent addStudent = null;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -13,6 +14,7 @@ public class Main {
 		
 		// 추가할 부분!!
 		try {			
+			addStudent = new AddStudent(DBConnection.statement);
 			
 			//test
 			//-------------------------------------------------------------

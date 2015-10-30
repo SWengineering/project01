@@ -3,9 +3,9 @@ package sw_engineering.project01;
 import java.sql.*;
 
 public class DBConnection {
-	static String url = "jdbc:mysql://localhost:3306/student_info";
-	static String user = "root";
-	static String password = "1234";
+	final static String url = "jdbc:mysql://localhost:3306/student_info";
+	final static String user = "root";
+	final static String password = "1234";
 	
 	public static Connection connection = null;
 	public static Statement statement = null;
@@ -19,7 +19,7 @@ public class DBConnection {
 	public static boolean loadDriver() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//System.out.println("JDBC 드라이버 로드 성공!");
+			System.out.println("JDBC 드라이버 로드 성공!");
 			
 			return true;
 		} catch (java.lang.ClassNotFoundException e) {

@@ -8,8 +8,6 @@ public class DBConnection {
 	final static String password = "1234";
 	
 	public static Connection connection = null;
-	public static Statement statement = null;
-	public static ResultSet result = null;
 
 	public DBConnection() {
 		if( loadDriver() )
@@ -35,35 +33,13 @@ public class DBConnection {
 			connection = DriverManager.getConnection(url, user, password);
 			System.out.println("\n데이터베이스 연결 성공: "+ url);
 			
-			statement = connection.createStatement();
-			
-//			//test
-//			//-------------------------------------------------------------
-//			String sql = "Select * From student_info.student";
-//			result = statement.executeQuery(sql);
-//			
-//			while (result.next()) {
-//				int id = result.getInt("id");
-//				String name = result.getString("name");
-//				String department = result.getString("department");
-//				String phone = result.getString("phone");
-//				System.out.println(id+"\t"+name+"\t"+department+"\t"+phone);
-//			}
-//			//-------------------------------------------------------------
-			
 		} catch (SQLException ex) {
 			System.out.println("\n데이터베이스 연결 실패: "+ url);
 		}
 	}
 	
 	public void disconnectDatabase() {
-		try {
-			if(result != null)	
-				result.close();
-			
-			if(statement != null)	
-				statement.close();
-			
+		try {			
 			if(connection != null)
 				connection.close();
 			

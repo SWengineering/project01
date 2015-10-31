@@ -9,8 +9,8 @@ public class Main {
 		dbConnection = new DBConnection();
 		
 		// 추가할 부분!!	
-		addStudent = new AddStudent(DBConnection.connection);
-		
+		if (DBConnection.connection != null)
+			addStudent = new AddStudent(DBConnection.connection);
 		
 		dbConnection.disconnectDatabase();
 	}

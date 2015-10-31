@@ -9,18 +9,16 @@ public class Main {
 	static DeleteStudent deleteStudent = null;
 	static UpdateStudent updateStudent = null;
 	static ViewStudent viewStudent = null;
+	static int choice = 0;
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		dbConnection = new DBConnection();
-
-		int choice = 1;
-		
+		dbConnection = new DBConnection();		
 
 		// 추가할 부분!!	
 		if (DBConnection.connection != null)
 			addStudent = new AddStudent(DBConnection.connection);
-=======
+
 		do {
 			System.out.println("======================");
 			System.out.println(" 1. 학생 추가 ");

@@ -39,9 +39,8 @@ public class DBConnection {
 	}
 	
 	public void disconnectDatabase() {
-		try {			
-			if(connection != null)
-				connection.close();
+		try {
+			connection.close();
 			
 			System.out.println("\n데이터베이스 연결 해제");
 		} catch(Exception e) {

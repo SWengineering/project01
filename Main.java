@@ -54,7 +54,7 @@ public class Main {
 		dbConnection.disconnectDatabase();
 	}
 
-	public boolean checkUserSelection(int choice) {
+	public static boolean checkUserSelection(int choice) {
 		if ((choice >= 1) && (choice <= 4))
 			return true;
 

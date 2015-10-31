@@ -25,7 +25,10 @@ public class ViewStudent {
 		try {
 			statement = connection.prepareStatement(sql);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 9cc385cc5ec4dc477310d34af267875da3b1ca87
 			System.out.print("정보를 열람할 학생의 학번: ");
 			studentId = bufferedReader.readLine();
 			

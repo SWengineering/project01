@@ -22,7 +22,10 @@ public class AddStudent {
 		try {
 			statement = connection.prepareStatement(sql);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 9cc385cc5ec4dc477310d34af267875da3b1ca87
 			System.out.println("*** Student 테이블에 학생 추가하기 ***");
 			System.out.print("학번 입력 : ");
 			studentId = bufferedReader.readLine();

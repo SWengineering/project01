@@ -15,7 +15,6 @@ public class Main {
 		// TODO Auto-generated method stub
 		dbConnection = new DBConnection();		
 
-		// 추가할 부분!!	
 		if (DBConnection.connection != null)
 			addStudent = new AddStudent(DBConnection.connection);
 

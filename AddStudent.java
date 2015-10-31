@@ -40,6 +40,7 @@ public class AddStudent {
 	public boolean getInputFromUser() {
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
 			System.out.println("*** Student 테이블에 학생 추가하기 ***");
 			
 			System.out.print("학번 입력 : ");

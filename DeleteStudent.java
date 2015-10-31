@@ -1,0 +1,35 @@
+package sw_engineering.project01;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class DeleteStudent {
+	PreparedStatement statement = null; 
+	String studentId;
+
+	public DeleteStudent(Connection connection) {
+		deleteStudentInfo(connection);
+	}
+	
+	public void deleteStudentInfo(Connection connection) {
+		String sql = "DELETE FROM student where id=?";
+		
+		try {
+			statement = connection.prepareStatement(sql);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+			System.out.print("삭제할 학생의 학번: ");
+			studentId = bufferedReader.readLine();
+			statement.setString(1, studentId);
+			statement.executeUpdate();
+			
+			System.out.println("학번이 "+studentId+"인 학생의 정보를 삭제했습니다");
+			
+		} catch (Exception e) {
+			System.out.println("삭제 실패하였습니다");
+		}
+	}
+}

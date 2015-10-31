@@ -3,7 +3,7 @@ package sw_engineering.project01;
 import java.sql.*;
 
 public class DBConnection {
-	final static String url = "jdbc:mysql://localhost:3308/student_info";
+	final static String url = "jdbc:mysql://localhost:3306/student_info";
 	final static String user = "root";
 	final static String password = "1234";
 	

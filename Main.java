@@ -49,8 +49,15 @@ public class Main {
 				System.out.println("프로그램을 종료합니다.");
 				return;
 			}
-		} while ((choice >= 1) && (choice <= 4));
+		} while ( checkUserSelection(choice) );
 		
 		dbConnection.disconnectDatabase();
+	}
+
+	public boolean checkUserSelection(int choice) {
+		if ((choice >= 1) && (choice <= 4))
+			return true;
+
+		return false;
 	}
 }

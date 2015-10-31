@@ -16,11 +16,11 @@ public class Main {
 
 		int choice = 1;
 		
-<<<<<<< HEAD
+
 		// 추가할 부분!!	
 		if (DBConnection.connection != null)
 			addStudent = new AddStudent(DBConnection.connection);
-=======
+
 		do {
 			System.out.println("======================");
 			System.out.println(" 1. 학생 추가 ");
@@ -53,7 +53,6 @@ public class Main {
 				return;
 			}
 		} while ((choice >= 1) && (choice <= 4));
->>>>>>> d8f2dc5769f345b1944aa59db21d624f64159d9a
 		
 		dbConnection.disconnectDatabase();
 	}

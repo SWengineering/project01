@@ -15,6 +15,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		dbConnection = new DBConnection();		
 
+<<<<<<< HEAD
 		if (DBConnection.connection != null)
 			addStudent = new AddStudent(DBConnection.connection);
 
@@ -52,6 +53,45 @@ public class Main {
 		} while ( checkUserSelection(choice) );
 		
 		dbConnection.disconnectDatabase();
+=======
+		if (DBConnection.connection != null) {
+
+			do {
+				System.out.println("======================");
+				System.out.println(" 1. 학생 추가 ");
+				System.out.println(" 2. 학생 삭제 ");
+				System.out.println(" 3. 학생 정보 수정 ");
+				System.out.println(" 4. 학생 정보 열람 ");
+				System.out.println(" 5. 종료 ");
+				System.out.println("======================");
+				System.out.print("번호를 선택하세요 >> ");
+				
+				Scanner scan = new Scanner(System.in);
+				choice = scan.nextInt();
+	
+				switch(choice) {
+				case 1:
+					addStudent = new AddStudent(DBConnection.connection);
+					break;
+				case 2:
+					deleteStudent = new DeleteStudent(DBConnection.connection);
+					break;
+				case 3:
+					updateStudent = new UpdateStudent(DBConnection.connection);
+					break;
+				case 4:
+					viewStudent = new ViewStudent(DBConnection.connection);
+					break;
+				case 5:
+					dbConnection.disconnectDatabase();
+					System.out.println("프로그램을 종료합니다.");
+					return;
+				}
+			} while ( checkUserSelection(choice) );
+			
+			dbConnection.disconnectDatabase();
+		}
+>>>>>>> 22c2aceff36cde365f52ddc8ba49d018532c7f4d
 	}
 
 	public static boolean checkUserSelection(int choice) {

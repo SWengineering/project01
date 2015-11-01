@@ -41,6 +41,7 @@ public class ViewStudent {
 			}
 			else
 				System.out.println("해당 학번을 가진 한생이 없습니다!");
+			
 		} catch (Exception e) {
 			System.out.println("");
 		}

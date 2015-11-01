@@ -35,7 +35,10 @@ public class UpdateStudent {
 			
 			result = statement.executeUpdate();
 			
-			System.out.println("학생 갱신 성공");
+			if (result==1)
+				System.out.println("학생 갱신 성공");
+			else 
+				System.out.println("해당 학생 정보가 없습니다");
 			
 		} catch(Exception e) {
 			System.out.println("학생 갱신 실패");

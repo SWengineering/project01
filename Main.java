@@ -10,6 +10,7 @@ public class Main {
 	static UpdateStudent updateStudent = null;
 	static ViewStudent viewStudent = null;
 	static int choice = 0;
+	static Scanner scan = null;
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
@@ -27,7 +28,7 @@ public class Main {
 				System.out.println("======================");
 				System.out.print("번호를 선택하세요 >> ");
 				
-				Scanner scan = new Scanner(System.in);
+				scan = new Scanner(System.in);
 				choice = scan.nextInt();
 			
 				switch(choice) {
@@ -46,6 +47,7 @@ public class Main {
 				case 5:
 					dbConnection.disconnectDatabase();
 					System.out.println("프로그램을 종료합니다.");
+					scan.close();
 					return;
 				}
 			} while ( checkUserSelection(choice) );

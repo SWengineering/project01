@@ -26,21 +26,21 @@ public class ViewStudent {
 			statement = connection.prepareStatement(sql);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-			System.out.print("Á¤º¸¸¦ ¿­¶÷ÇÒ ÇĞ»ıÀÇ ÇĞ¹ø: ");
+			System.out.print("ì •ë³´ë¥¼ ì—´ëŒí•  í•™ìƒì˜ í•™ë²ˆ: ");
 			studentId = bufferedReader.readLine();
 			
 			statement.setString(1, studentId);
 			result = statement.executeQuery();
-			System.out.println("ÇĞ¹ø\tÀÌ¸§\tÇĞ°ú\t\tÇÚµåÆù ¹øÈ£");
 			
 			if (result.next()) {
+				System.out.println("í•™ë²ˆ\tì´ë¦„\tí•™ê³¼\t\tí•¸ë“œí° ë²ˆí˜¸");
 				String name = result.getString("name");
 				String department = result.getString("department");
 				String phone = result.getString("phone");
 				System.out.println(studentId+"\t"+name+"\t"+department+"\t\t"+phone);
 			}
 			else
-				System.out.println("ÇØ´ç ÇĞ¹øÀ» °¡Áø ÇÑ»ıÀÌ ¾ø½À´Ï´Ù!");
+				System.out.println("í•´ë‹¹ í•™ë²ˆì„ ê°€ì§„ í•œìƒì´ ì—†ìŠµë‹ˆë‹¤!");
 			
 		} catch (Exception e) {
 			System.out.println("");

@@ -11,28 +11,38 @@ public class DeleteStudent {
 	int result;
 
 	public DeleteStudent(Connection connection) {
-		deleteStudentInfo(connection);
+		if( getInputFromUser() ) {
+			String sql = "DELETE FROM student where id=?";
+			
+			try {
+				statement = connection.prepareStatement(sql);
+				
+				statement.setString(1, studentId);
+				result = statement.executeUpdate();
+				
+				if (result==1)
+					System.out.println("학번이 "+studentId+"인 학생의 정보를 삭제했습니다");
+				else 
+					System.out.println("해당 학생 정보가 없습니다");
+				
+			} catch (Exception e) {
+				System.out.println("삭제 실패하였습니다");
+			}
+		}
 	}
 	
-	public void deleteStudentInfo(Connection connection) {
-		String sql = "DELETE FROM student where id=?";
-		
+	public boolean getInputFromUser() {
 		try {
-			statement = connection.prepareStatement(sql);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 			System.out.print("삭제할 학생의 학번: ");
 			studentId = bufferedReader.readLine();
-			statement.setString(1, studentId);
-			result = statement.executeUpdate();
 			
-			if (result==1)
-				System.out.println("학번이 "+studentId+"인 학생의 정보를 삭제했습니다");
-			else 
-				System.out.println("해당 학생 정보가 없습니다");
-			
-		} catch (Exception e) {
-			System.out.println("삭제 실패하였습니다");
+			return true;
+		} catch(Exception e) {
+			System.out.println("사용자 입력 실패");
 		}
+		
+		return false;
 	}
 }

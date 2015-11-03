@@ -14,26 +14,22 @@ public class AddStudent {
 	
 	public AddStudent(Connection connection) {
 		if( getInputFromUser() ) {
-			insertStudent(connection);
-		}
-	}
-
-	public void insertStudent(Connection connection) {
-		String sql = "Insert Into student (id, name, department, phone) Values (?,?,?,?)";
-		
-		try {
-			statement = connection.prepareStatement(sql);
+			String sql = "Insert Into student (id, name, department, phone) Values (?,?,?,?)";
 			
-			statement.setString(1, studentId);
-			statement.setString(2, name);
-			statement.setString(3, department);
-			statement.setString(4, phone);
-			
-			statement.executeUpdate();
-			System.out.println("학생 추가 성공");
-			
-		} catch(Exception e) {
-			System.out.println("학생 추가 실패");
+			try {
+				statement = connection.prepareStatement(sql);
+				
+				statement.setString(1, studentId);
+				statement.setString(2, name);
+				statement.setString(3, department);
+				statement.setString(4, phone);
+				
+				statement.executeUpdate();
+				System.out.println("학생 추가 성공");
+				
+			} catch(Exception e) {
+				System.out.println("학생 추가 실패");
+			}
 		}
 	}
 

@@ -16,34 +16,43 @@ public class ViewStudent {
 	
 
 	public ViewStudent(Connection connection) {
-		viewStudentInfo(connection);
+		if( getInputFromUser() ) {
+			String sql = "SELECT name, department, phone FROM student where id=?";
+			
+			try {
+				statement = connection.prepareStatement(sql);
+				
+				statement.setString(1, studentId);
+				result = statement.executeQuery();
+				
+				if (result.next()) {
+					System.out.println("학번\t이름\t학과\t\t핸드폰 번호");
+					String name = result.getString("name");
+					String department = result.getString("department");
+					String phone = result.getString("phone");
+					System.out.println(studentId+"\t"+name+"\t"+department+"\t\t"+phone);
+				}
+				else
+					System.out.println("해당 학번을 가진 학생이 없습니다!");
+				
+			} catch (Exception e) {
+				System.out.println("");
+			}
+		}
 	}
 	
-	public void viewStudentInfo(Connection connection) {
-		String sql = "SELECT name, department, phone FROM student where id=?";
-		
+	public boolean getInputFromUser() {
 		try {
-			statement = connection.prepareStatement(sql);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 			System.out.print("정보를 열람할 학생의 학번: ");
 			studentId = bufferedReader.readLine();
 			
-			statement.setString(1, studentId);
-			result = statement.executeQuery();
-			
-			if (result.next()) {
-				System.out.println("학번\t이름\t학과\t\t핸드폰 번호");
-				String name = result.getString("name");
-				String department = result.getString("department");
-				String phone = result.getString("phone");
-				System.out.println(studentId+"\t"+name+"\t"+department+"\t\t"+phone);
-			}
-			else
-				System.out.println("해당 학번을 가진 학생이 없습니다!");
-			
-		} catch (Exception e) {
-			System.out.println("");
+			return true;
+		} catch(Exception e) {
+			System.out.println("사용자 입력 실패");
 		}
+		
+		return false;
 	}
 }
